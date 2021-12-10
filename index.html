@@ -1,121 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sorting Visualizer</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body class="bg-dark text-white">
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-brand">
-          <p>Demo AI</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting Visualizer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-dark text-white">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <p>Demo AI</p>
+      </div>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sort</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://demo-linked-list.netlify.app/">Linked list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://demo-tree.netlify.app/">Binary search tree</a>
+        </li>
+
+    </div>
+  </nav>
+
+  <h1 align="center">Sorting Visualizer</h1>
+  <div id="bars" class="flex-container"></div>
+  <header>
+    <nav>
+      <div class="row">
+        <div class="col gap-2 d-sm-flex" id="newArray">
+          <button type="button" class="btn btn-outline-primary newArray">
+            New Array
+          </button>
         </div>
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sort</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demo-linked-list.netlify.app/">Linked list</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demo-tree.netlify.app/">Binary search tree</a>
-          </li>
-         
+        <div class="col" id="input">
+          <span id="size">Size
+            <input id="arr_sz" type="range" min="5" max="100" step="1" value="30" />
+          </span>
+          <span id="speed">Speed
+            <input id="speed_input" type="range" min="20" max="300" stepDown="10" value="30" />
+          </span>
+        </div>
+        <div class="col gap-2 d-sm-flex justify-content-end">
+          <button type="button" class="btn btn-outline-primary btn-dark bubbleSort">
+            Bubble Sort
+          </button>
+          <button type="button" class="btn btn-outline-primary btn-dark selectionSort">
+            Selection Sort
+          </button>
+          <button type="button" class="btn btn-outline-primary btn-dark insertionSort">
+            Insertion Sort
+          </button>
+          <button type="button" class="btn btn-outline-primary btn-dark quickSort">
+            Quick Sort
+          </button>
+          <button type="button" class="btn btn-outline-primary btn-dark mergeSort">
+            Merge Sort
+          </button>
+        </div>
       </div>
     </nav>
+  </header>
 
-    <h1 align="center">Sorting Visualizer</h1>
-    <div id="bars" class="flex-container"></div>
-    <header>
-      <nav>
-        <div class="row">
-          <div class="col gap-2 d-sm-flex" id="newArray">
-            <button
-              type="button"
-              class="btn btn-outline-primary newArray"
-            >
-              New Array
-            </button>
-          </div>
-          <div class="col" id="input">
-            <span id="size"
-              >Size
-              <input
-                id="arr_sz"
-                type="range"
-                min="5"
-                max="100"
-                step="1"
-                value="30"
-              />
-            </span>
-            <span id="speed"
-              >Speed
-              <input
-                id="speed_input"
-                type="range"
-                min="20"
-                max="300"
-                stepDown="10"
-                value="30"
-              />
-            </span>
-          </div>
-          <div class="col gap-2 d-sm-flex justify-content-end">
-            <button
-              type="button"
-              class="btn btn-outline-primary btn-dark bubbleSort"
-            >
-              Bubble Sort
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-primary btn-dark selectionSort"
-            >
-              Selection Sort
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-primary btn-dark insertionSort"
-            >
-              Insertion Sort
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-primary btn-dark quickSort"
-            >
-              Quick Sort
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-primary btn-dark mergeSort"
-            >
-              Merge Sort
-            </button>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js_files/sorting.js"></script>
-    <script src="js_files/bubble.js"></script>
-    <script src="js_files/insertion.js"></script>
-    <script src="js_files/merge.js"></script>
-    <script src="js_files/quick.js"></script>
-    <script src="js_files/selection.js"></script>
-  </body>
+  <div class="container-fluid code-block list-group">
+    <h3 class="">Pseudocode</h3>
+    <hr>
+
+    <div id="bubbleBlockCode" class="display operation">
+      <h4>Bubble Sort:</h4>
+      <pre class="pre-code">
+            <code>
+              For I = 0 to N - 2
+                For J = 0 to N - 2
+                  If (A(J) > A(J + 1)
+                    Temp = A(J)
+                    A(J) = A(J + 1)
+                    A(J + 1) = Temp
+                  End-If
+                End-For
+              End-For
+            </code>
+          </pre>
+    </div>
+    <div id="selectionSortBlockCode" class="operation">
+      <h4>Selection Sort:</h4>
+      <pre class="pre-code">
+            <code>
+              For I = 0 to N-1 do:
+                Smallsub = I
+                For J = I + 1 to N-1 do:
+                  If A(J) < A(Smallsub)
+                    Smallsub = J
+                  End-If
+                End-For
+                Temp = A(I)
+                A(I) = A(Smallsub)
+                A(Smallsub) = Temp
+              End-For
+            </code>
+          </pre>
+    </div>
+    <div id="insertionSortBlockCode" class="operation">
+      <h4>Insertion Sort:</h4>
+      <pre class="pre-code">
+            <code>
+              For I = 1 to N-1
+                J = I
+                Do while (J > 0) and (A(J) < A(J - 1)
+                  Temp = A(J)
+                  A(J) = A(J - 1)
+                  A(J - 1) = Temp
+                  J = J - 1
+                End-Do
+              End-For
+            </code>
+          </pre>
+    </div>
+    <div id="quickSortBlockCode" class="operation">
+      <h4>Quick Sort:</h4>
+      <pre class="pre-code">
+            <code>
+              procedure quickSort(left, right)
+
+                if right-left <= 0
+                    return
+                else
+                    pivot = A[right]
+                    partition = partitionFunc(left, right, pivot)
+                    quickSort(left,partition-1)
+                    quickSort(partition+1,right)
+                end if
+
+              end procedure
+            </code>
+          </pre>
+    </div>
+    <div id="mergeSortBlockCode" class="operation">
+      <h4>Merge Sort:</h4>
+      <pre class="pre-code">
+            <code>
+              MergeSort(arr[], l,  r)
+                If r > l
+                1.Find the middle point to
+                  divide the array into two halves:
+                            middle m = l+ (r-l)/2
+                2.Call mergeSort for first half:
+                            Call mergeSort(arr, l, m)
+                3. Call mergeSort for second half:
+                            Call mergeSort(arr, m+1, r)
+                4.Merge the two halves sorted in
+                  step 2 and 3:
+                            Call merge(arr, l, m, r)
+            </code>
+          </pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <script src="js_files/sorting.js"></script>
+  <script src="js_files/bubble.js"></script>
+  <script src="js_files/insertion.js"></script>
+  <script src="js_files/merge.js"></script>
+  <script src="js_files/quick.js"></script>
+  <script src="js_files/selection.js"></script>
+</body>
+
 </html>

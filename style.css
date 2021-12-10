@@ -62,3 +62,32 @@ p {
   border-radius: 4px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
+
+.code-block {
+  width: auto;
+  position: absolute;
+  right: 0;
+  top: 15%;
+  padding: 1em;
+}
+
+.pre-code {
+  max-height: 350px;
+  width: 500px;
+  overflow: auto;
+}
+
+.operation {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -122,3 +122,51 @@ newArray.addEventListener("click", function () {
   enableSizeSlider();
   createNewArray(arraySize.value);
 });
+
+function displayBlockCode(id) {
+  var bubbleBlockCode = document.getElementById("bubbleBlockCode");
+  var selectionSortBlockCode = document.getElementById(
+    "selectionSortBlockCode"
+  );
+  var insertionSortBlockCode = document.getElementById(
+    "insertionSortBlockCode"
+  );
+  var quickSortBlockCode = document.getElementById("quickSortBlockCode");
+  var mergeSortBlockCode = document.getElementById("mergeSortBlockCode");
+
+  if (id === "bubbleBlockCode") {
+    bubbleBlockCode?.classList.add("display");
+    selectionSortBlockCode?.classList.remove("display");
+    insertionSortBlockCode?.classList.remove("display");
+    quickSortBlockCode?.classList.remove("display");
+    mergeSortBlockCode?.classList.remove("display");
+  }
+  if (id === "selectionSortBlockCode") {
+    bubbleBlockCode?.classList.remove("display");
+    selectionSortBlockCode?.classList.add("display");
+    insertionSortBlockCode?.classList.remove("display");
+    quickSortBlockCode?.classList.remove("display");
+    mergeSortBlockCode?.classList.remove("display");
+  }
+  if (id === "insertionSortBlockCode") {
+    bubbleBlockCode?.classList.remove("display");
+    selectionSortBlockCode?.classList.remove("display");
+    insertionSortBlockCode?.classList.add("display");
+    quickSortBlockCode?.classList.remove("display");
+    mergeSortBlockCode?.classList.remove("display");
+  }
+  if (id === "quickSortBlockCode") {
+    bubbleBlockCode?.classList.remove("display");
+    selectionSortBlockCode?.classList.remove("display");
+    insertionSortBlockCode?.classList.remove("display");
+    quickSortBlockCode?.classList.add("display");
+    mergeSortBlockCode?.classList.remove("display");
+  }
+  if (id === "mergeSortBlockCode") {
+    bubbleBlockCode?.classList.remove("display");
+    selectionSortBlockCode?.classList.remove("display");
+    insertionSortBlockCode?.classList.remove("display");
+    mergeSortBlockCode?.classList.add("display");
+    quickSortBlockCode?.classList.remove("display");
+  }
+}
